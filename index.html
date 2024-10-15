@@ -6,7 +6,6 @@
   <title>Rafli Ramdani - Linktree</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* General Styles */
     body {
       background: linear-gradient(135deg, #1e1e2e, #16161d);
       color: white;
@@ -19,13 +18,6 @@
       margin: 0;
       overflow: hidden;
     }
-
-    /* Smooth Scroll Effect */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Container Styles */
     .container {
       text-align: center;
       width: 100%;
@@ -37,8 +29,6 @@
       backdrop-filter: blur(10px);
       animation: fadeIn 1s ease-in-out;
     }
-
-    /* Profile Picture */
     .profile-pic {
       width: 130px;
       height: 130px;
@@ -47,22 +37,17 @@
       border: 2px solid #fff;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
-
-    /* Headings and Bio */
     h1 {
       margin: 10px 0;
       font-weight: 600;
       font-size: 1.8rem;
     }
-
     .bio {
       font-weight: 300;
       font-size: 0.9rem;
       margin-bottom: 20px;
       color: rgba(255, 255, 255, 0.7);
     }
-
-    /* Links Styling */
     .link {
       background: linear-gradient(135deg, #4e4ecf, #5a89ff);
       padding: 15px;
@@ -75,22 +60,16 @@
       font-weight: 400;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    /* Hover Effect for Links */
     .link:hover {
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(90, 137, 255, 0.8);
     }
-
-    /* Footer Styles */
     footer {
       position: fixed;
       bottom: 10px;
       font-size: 0.8rem;
       color: rgba(255, 255, 255, 0.6);
     }
-
-    /* Animation */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -99,7 +78,7 @@
 </head>
 <body>
   <div class="container">
-    <img src="IMG-20221106-WA0094.jpg" alt="Profile Picture" class="profile-pic">
+    <img src="foto-profil.jpg" alt="Profile Picture" class="profile-pic">
     <h1>Rafli Ramdani</h1>
     <p class="bio">Welcome to my Linktree! Explore my social media and projects below.</p>
     <div id="links"></div>
@@ -110,12 +89,12 @@
   </footer>
 
   <script>
-    // Data Links
+    // Data Links (Updated with Spotify)
     const links = [
       { name: 'Instagram', url: 'https://instagram.com/raaflirmdnnn' },
-      { name: 'GitHub', url: 'https://github.com/' },
-      { name: 'LinkedIn', url: 'https://linkedin.com/' },
-      { name: 'Portfolio', url: 'https://yourportfolio.com' }
+      { name: 'Telegram', url: 'https://t.me/your-telegram-username' }, // Ganti dengan username Telegram
+      { name: 'TikTok', url: 'https://www.tiktok.com/@your-tiktok-username' },
+      { name: 'Spotify', url: 'https://open.spotify.com/playlist/55O0mqgIbljuanm410FT7a?si=bHNxGeyiRTi53CYlO6ASyA' } // Ganti dengan link Spotify
     ];
 
     // Render Links to HTML
@@ -125,7 +104,7 @@
       a.href = link.url;
       a.textContent = link.name;
       a.className = 'link';
-      a.target = '_blank';  // Buka di tab baru
+      a.target = '_blank';  // Open in a new tab
       linksContainer.appendChild(a);
     });
   </script>
