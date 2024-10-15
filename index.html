@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafli Ramdani - Linktree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      background: linear-gradient(135deg, #1e1e2e, #16161d);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Smooth Scroll Effect */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Container Styles */
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Profile Picture */
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Headings and Bio */
+    h1 {
+      margin: 10px 0;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    .bio {
+      font-weight: 300;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Links Styling */
+    .link {
+      background: linear-gradient(135deg, #4e4ecf, #5a89ff);
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /* Hover Effect for Links */
+    .link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(90, 137, 255, 0.8);
+    }
+
+    /* Footer Styles */
+    footer {
+      position: fixed;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="IMG-20221106-WA0094.jpg" alt="Profile Picture" class="profile-pic">
+    <h1>Rafli Ramdani</h1>
+    <p class="bio">Welcome to my Linktree! Explore my social media and projects below.</p>
+    <div id="links"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Rafli Ramdani. Made with ❤️</p>
+  </footer>
+
+  <script>
+    // Data Links
+    const links = [
+      { name: 'Instagram', url: 'https://instagram.com/raaflirmdnnn' },
+      { name: 'GitHub', url: 'https://github.com/' },
+      { name: 'LinkedIn', url: 'https://linkedin.com/' },
+      { name: 'Portfolio', url: 'https://yourportfolio.com' }
+    ];
+
+    // Render Links to HTML
+    const linksContainer = document.getElementById('links');
+    links.forEach(link => {
+      const a = document.createElement('a');
+      a.href = link.url;
+      a.textContent = link.name;
+      a.className = 'link';
+      a.target = '_blank';  // Buka di tab baru
+      linksContainer.appendChild(a);
+    });
+  </script>
+</body>
+</html>
