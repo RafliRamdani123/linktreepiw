@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafli Ramdani - Minimalist Portfolio</title>
+  <title>Rafli Ramdani - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -16,33 +16,57 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      flex-direction: column;
+      text-align: center;
     }
 
-    /* Background Animation */
     @keyframes gradientAnimation {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Container */
-    .container {
+    /* Hero Section */
+    .hero {
+      padding: 60px 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid white;
+      transition: transform 0.3s ease;
+    }
+
+    .hero img:hover {
+      transform: scale(1.1);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    /* Sections */
+    .section {
+      padding: 50px 20px;
       background: white;
-      width: 100%;
-      max-width: 600px;
       margin: 20px;
-      padding: 20px;
       border-radius: 15px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      overflow-y: auto;
-      max-height: 90vh;
-      text-align: center;
-      animation: fadeIn 1s ease-in-out, floatAnimation 5s ease-in-out infinite;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
     }
 
     @keyframes fadeIn {
@@ -50,134 +74,136 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes floatAnimation {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    /* Profile Picture */
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 3px solid #ddd;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .profile-pic:hover {
-      transform: scale(1.1);
-      border-color: #666;
-    }
-
-    /* Text Styles */
-    h1 {
-      margin: 10px 0;
-      font-weight: 600;
-      font-size: 1.8rem;
-      color: #333;
-      animation: slideIn 1s ease-in-out;
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .bio {
-      font-weight: 300;
-      font-size: 1rem;
-      margin-bottom: 25px;
-      color: #666;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    /* Links */
-    .link {
-      background: #f9f9f9;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      font-weight: 400;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-      border: 1px solid #eee;
-      animation: fadeInUp 1s ease-in-out;
-    }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .link i {
-      margin-right: 10px;
-      color: #666;
-      transition: color 0.3s ease;
+    /* Skills */
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
-    .link:hover {
-      background: #e0e0e0;
+    .skill {
+      background: #ff9a9e;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
-    .link:hover i {
-      color: #333;
+    /* Contact */
+    .contact {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1.5rem;
+    }
+
+    .contact a {
+      color: #555;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact a:hover {
+      color: #ff6666;
+      transform: scale(1.2);
     }
 
     /* Footer */
     footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
       background: rgba(255, 255, 255, 0.9);
       padding: 10px 0;
       font-size: 0.9rem;
       color: #666;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Responsive Design */
-    @media (max-width: 480px) {
-      .container {
-        margin: 10px;
-        padding: 15px;
-      }
-      .profile-pic {
-        width: 100px;
-        height: 100px;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      .bio {
-        font-size: 0.9rem;
-      }
-      .link {
-        padding: 12px;
-        font-size: 0.9rem;
-      }
-      footer {
-        font-size: 0.8rem;
-      }
-    }
   </style>
 </head>
 <body>
-  <!-- Main Content -->
-  <div class="container">
-    <img src="WhatsApp Image 2025-02-01 at 12.55.04.jpeg" alt="Profile Picture" class="profile-pic">
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <img src="WhatsApp Image 2025-02-01 at 12.55.04.jpeg" alt="Profile Picture">
     <h1>Rafli Ramdani</h1>
-    <p class="bio">Halo Selamat Datang di web ini, web ini hanya untuk gabut gabutan aja.</p>
-    <div id="links"></div>
+    <p>Web Developer | Programmer | Tech Enthusiast</p>
+  </div>
+
+  <!-- About Me Section -->
+  <div class="section">
+    <h2>About Me</h2>
+    <p>Saya adalah seorang pengembang web yang memiliki passion dalam coding dan desain UI/UX. Saya senang membangun website yang kreatif dan responsif.</p>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="section">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">React</span>
+      <span class="skill">Node.js</span>
+      <span class="skill">Python</span>
+      <span class="skill">Java</span>
+    </div>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Landing Page Design</h3>
+        <p>Website yang interaktif dengan UI/UX modern.</p>
+      </div>
+      <div class="project">
+        <h3>E-Commerce Website</h3>
+        <p>Proyek toko online dengan fitur pembayaran.</p>
+      </div>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>Website pribadi untuk menunjukkan keterampilan dan proyek.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="section">
+    <h2>Contact Me</h2>
+    <div class="contact">
+      <a href="https://instagram.com/raaflirmdnnn" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/rafliramdani123" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/0895372975959" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -185,27 +211,5 @@
     <p>&copy; 2024 Rafli Ramdani. Made with ❤️</p>
   </footer>
 
-  <script>
-    // Data Links with Icons
-    const links = [
-      { name: 'Instagram', url: 'https://instagram.com/raaflirmdnnn', icon: 'fab fa-instagram' },
-      { name: 'GitHub', url: 'https://github.com/rafliramdani123', icon: 'fab fa-github' },
-      { name: 'TikTok', url: 'https://www.tiktok.com/@raflliee', icon: 'fab fa-tiktok' },
-      { name: 'Spotify', url: 'https://open.spotify.com/playlist/55O0mqgIbljuanm410FT7a?si=bHNxGeyiRTi53CYlO6ASyA', icon: 'fab fa-spotify' },
-      { name: 'WhatsApp', url: 'https://wa.me/0895372975959', icon: 'fab fa-whatsapp' }
-    ];
-
-    // Render Links to HTML
-    const linksContainer = document.getElementById('links');
-    links.forEach((link, index) => {
-      const a = document.createElement('a');
-      a.href = link.url;
-      a.className = 'link';
-      a.target = '_blank';
-      a.innerHTML = `<i class="${link.icon}"></i> ${link.name}`;
-      a.style.animationDelay = `${index * 0.2}s`;
-      linksContainer.appendChild(a);
-    });
-  </script>
 </body>
 </html>
