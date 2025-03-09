@@ -9,15 +9,25 @@
   <style>
     /* Global Styles */
     body {
-      background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+      background-size: 400% 400%;
+      animation: gradientAnimation 8s ease infinite;
       color: #333;
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       min-height: 100vh;
+      flex-direction: column;
+    }
+
+    /* Background Animation */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* Container */
@@ -31,18 +41,19 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       overflow-y: auto;
       max-height: 90vh;
-      animation: fadeIn 1s ease-in-out;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out, floatAnimation 5s ease-in-out infinite;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatAnimation {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(10px); }
+      100% { transform: translateY(0px); }
     }
 
     /* Profile Picture */
@@ -52,11 +63,9 @@
       border-radius: 50%;
       margin-bottom: 20px;
       border: 3px solid #ddd;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
+
     .profile-pic:hover {
       transform: scale(1.1);
       border-color: #666;
@@ -67,20 +76,13 @@
       margin: 10px 0;
       font-weight: 600;
       font-size: 1.8rem;
-      text-align: center;
       color: #333;
       animation: slideIn 1s ease-in-out;
     }
 
     @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateX(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     .bio {
@@ -88,7 +90,6 @@
       font-size: 1rem;
       margin-bottom: 25px;
       color: #666;
-      text-align: center;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -111,14 +112,8 @@
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .link i {
@@ -139,11 +134,15 @@
 
     /* Footer */
     footer {
-      margin-top: 25px;
-      font-size: 0.9rem;
-      color: #999;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
       text-align: center;
-      animation: fadeIn 2s ease-in-out;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 0;
+      font-size: 0.9rem;
+      color: #666;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     }
 
     /* Responsive Design */
@@ -179,10 +178,12 @@
     <h1>Rafli Ramdani</h1>
     <p class="bio">Halo Selamat Datang di web ini, web ini hanya untuk gabut gabutan aja.</p>
     <div id="links"></div>
-    <footer>
-      <p>&copy; 2024 Rafli Ramdani. Made with ❤️</p>
-    </footer>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Rafli Ramdani. Made with ❤️</p>
+  </footer>
 
   <script>
     // Data Links with Icons
@@ -191,7 +192,7 @@
       { name: 'GitHub', url: 'https://github.com/rafliramdani123', icon: 'fab fa-github' },
       { name: 'TikTok', url: 'https://www.tiktok.com/@raflliee', icon: 'fab fa-tiktok' },
       { name: 'Spotify', url: 'https://open.spotify.com/playlist/55O0mqgIbljuanm410FT7a?si=bHNxGeyiRTi53CYlO6ASyA', icon: 'fab fa-spotify' },
-      { name: 'WhatsApp', url: 'https://wa.me/0895372975959', icon: 'fab fa-whatsapp' } // Ganti dengan nomor WhatsApp Anda
+      { name: 'WhatsApp', url: 'https://wa.me/0895372975959', icon: 'fab fa-whatsapp' }
     ];
 
     // Render Links to HTML
@@ -200,9 +201,9 @@
       const a = document.createElement('a');
       a.href = link.url;
       a.className = 'link';
-      a.target = '_blank';  // Open in a new tab
+      a.target = '_blank';
       a.innerHTML = `<i class="${link.icon}"></i> ${link.name}`;
-      a.style.animationDelay = `${index * 0.2}s`; // Staggered animation
+      a.style.animationDelay = `${index * 0.2}s`;
       linksContainer.appendChild(a);
     });
   </script>
